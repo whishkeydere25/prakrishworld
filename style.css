@@ -835,7 +835,8 @@ body {
     transition: all 0.5s;
 }
 .boxMail .boxMail-container:hover{
-    transform: rotate(-5deg);
+    /* Remove rotation on hover to prevent the letter from tilting when opened */
+    transform: scale(0.9);
     filter: drop-shadow(0 0 10px #FF7882);
 }
 .boxMail .boxMail-container:hover .card1{
@@ -1022,4 +1023,47 @@ body {
     cursor: pointer;
     color: white;
     z-index: 10000000000000000;
+}
+
+/* Responsive: ensure the opened letter (boxMail) doesn't tilt and fits on small screens */
+@media screen and (max-width: 658px) {
+    .boxMail .boxMail-container{
+        position: relative;
+        width: 90vw;
+        max-width: 720px;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        transform: none !important;
+        perspective: none;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .boxMail .boxMail-container:hover{
+        /* keep hover from rotating on touch devices */
+        transform: none !important;
+        filter: drop-shadow(0 0 8px #FF7882);
+    }
+
+    .boxMail .boxMail-container .card1,
+    .boxMail .boxMail-container .card2{
+        position: relative;
+        width: 100%;
+        height: 50%;
+        transform: none !important;
+        border: none;
+    }
+
+    .boxMail .boxMail-container .card2 .card2-content{
+        height: 100%;
+        overflow: auto;
+        padding-bottom: 20px;
+    }
+
+    .boxMail .fa-xmark{
+        top: 8px;
+        right: 8px;
+        padding: 6px 10px;
+    }
 }
