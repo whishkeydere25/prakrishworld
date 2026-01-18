@@ -1054,6 +1054,9 @@ body {
         width: 100%;
         height: auto;
         transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 0 !important;
         border: none;
     }
 
@@ -1075,6 +1078,10 @@ body {
         transform: none !important;
         padding: 12px;
         box-sizing: border-box;
+        align-items: center;
+    }
+    .boxMail .boxMail-container{
+        justify-content: center;
         align-items: center;
     }
     .boxMail.active{
